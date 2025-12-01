@@ -1,0 +1,38 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Cyber Event Horizon - Threat Detection System
+
+Resources:
+  ThreatDetectorFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/lambdas/
+      Handler: threat_detector.lambda_handler
+      Runtime: python3.11
+      Timeout: 10
+      MemorySize: 256
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /analyze
+            Method: post
+
+  RedirectorFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/lambdas/
+      Handler: redirector.lambda_handler
+      Runtime: python3.11
+      Timeout: 5
+      MemorySize: 128
+
+  ThreatLogsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub 'cyber-event-horizon-logs-${AWS::AccountId}'
+
+Outputs:
+  ApiEndpoint:
+    Description: API Gateway endpoint
+    Value: !Sub 'https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/analyze'

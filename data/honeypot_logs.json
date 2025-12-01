@@ -1,0 +1,397 @@
+[
+  {
+    "timestamp": "2025-11-28T02:59:04.896698",
+    "method": "GET",
+    "path": "/admin",
+    "body": "",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T02:59:06.464675",
+    "method": "POST",
+    "path": "/login",
+    "body": "{\"username\": \"admin\", \"password\": \"' OR '1'='1\"}",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive",
+      "Content-Length": "48",
+      "Content-Type": "application/json"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T02:59:08.295498",
+    "method": "GET",
+    "path": "/api/users",
+    "body": "",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T02:59:09.923660",
+    "method": "POST",
+    "path": "/config",
+    "body": "{\"cmd\": \"cat /etc/passwd\"}",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive",
+      "Content-Length": "26",
+      "Content-Type": "application/json"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T02:59:11.494323",
+    "method": "GET",
+    "path": "/etc/passwd",
+    "body": "",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T03:08:30.765576",
+    "method": "GET",
+    "path": "/admin",
+    "body": "",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T03:08:32.316815",
+    "method": "POST",
+    "path": "/login",
+    "body": "{\"username\": \"admin\", \"password\": \"' OR '1'='1\"}",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive",
+      "Content-Length": "48",
+      "Content-Type": "application/json"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T03:08:33.877403",
+    "method": "GET",
+    "path": "/api/users",
+    "body": "",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T03:08:35.413387",
+    "method": "POST",
+    "path": "/config",
+    "body": "{\"cmd\": \"cat /etc/passwd\"}",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive",
+      "Content-Length": "26",
+      "Content-Type": "application/json"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T03:08:36.977974",
+    "method": "GET",
+    "path": "/etc/passwd",
+    "body": "",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T03:11:19.621784",
+    "method": "GET",
+    "path": "/admin",
+    "body": "",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T03:11:21.224779",
+    "method": "POST",
+    "path": "/login",
+    "body": "{\"username\": \"admin\", \"password\": \"' OR '1'='1\"}",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive",
+      "Content-Length": "48",
+      "Content-Type": "application/json"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T03:11:22.826378",
+    "method": "GET",
+    "path": "/api/users",
+    "body": "",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T03:11:24.527350",
+    "method": "POST",
+    "path": "/config",
+    "body": "{\"cmd\": \"cat /etc/passwd\"}",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive",
+      "Content-Length": "26",
+      "Content-Type": "application/json"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T03:11:26.226336",
+    "method": "GET",
+    "path": "/etc/passwd",
+    "body": "",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T03:12:13.098086",
+    "method": "GET",
+    "path": "/admin",
+    "body": "",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T03:12:14.632830",
+    "method": "POST",
+    "path": "/login",
+    "body": "{\"username\": \"admin\", \"password\": \"' OR '1'='1\"}",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive",
+      "Content-Length": "48",
+      "Content-Type": "application/json"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T03:12:16.169761",
+    "method": "GET",
+    "path": "/api/users",
+    "body": "",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T03:12:17.712080",
+    "method": "POST",
+    "path": "/config",
+    "body": "{\"cmd\": \"cat /etc/passwd\"}",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive",
+      "Content-Length": "26",
+      "Content-Type": "application/json"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T03:12:19.285408",
+    "method": "GET",
+    "path": "/etc/passwd",
+    "body": "",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T03:28:43.564839",
+    "method": "GET",
+    "path": "/admin",
+    "body": "",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T03:28:45.184961",
+    "method": "POST",
+    "path": "/login",
+    "body": "{\"username\": \"admin\", \"password\": \"' OR '1'='1\"}",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive",
+      "Content-Length": "48",
+      "Content-Type": "application/json"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T03:28:46.724395",
+    "method": "GET",
+    "path": "/api/users",
+    "body": "",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T03:28:48.260660",
+    "method": "POST",
+    "path": "/config",
+    "body": "{\"cmd\": \"cat /etc/passwd\"}",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive",
+      "Content-Length": "26",
+      "Content-Type": "application/json"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  },
+  {
+    "timestamp": "2025-11-28T03:28:49.802485",
+    "method": "GET",
+    "path": "/etc/passwd",
+    "body": "",
+    "headers": {
+      "Host": "localhost:9000",
+      "User-Agent": "python-requests/2.31.0",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept": "*/*",
+      "Connection": "keep-alive"
+    },
+    "source_ip": "127.0.0.1",
+    "user_agent": "python-requests/2.31.0"
+  }
+]

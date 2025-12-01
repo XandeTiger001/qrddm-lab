@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# AWS
+.aws/
+*.pem
+*.key
+
+# Data & Models
+data/*.pkl
+data/*.csv
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+credentials.json
+config.json
