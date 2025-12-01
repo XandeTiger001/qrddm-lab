@@ -66,117 +66,120 @@ Incoming Traffic → Threat Detector (ML) → Decision Point
 - High entropy (encrypted/obfuscated payloads)
 - Request rate anomalies
 
-## 🌌 Métrica de Schwarzschild Adaptativa
+## 🌌 Adaptive Schwarzschild Metric
 
-O sistema usa uma analogia com a métrica de Schwarzschild da relatividade geral:
+The system uses an analogy with the Schwarzschild metric of general relativity:
 
 ```
 ds² = -(1 - 2GM(r)/c²r)c²dt² + (1 - 2GM(r)/c²r)⁻¹dr² + r²dΩ²
 ```
 
-### M(r) Adaptativo - Massa do Ataque
+### Adaptive M(r) - Attack Mass
 
 ```
 M(r) = α·S + β·F + γ·V + δ·D + ε·C
 ```
 
-**Componentes:**
-- **S** (Severity): Severidade do ataque (SQL injection, DDoS, etc.)
-- **F** (Frequency): Frequência de ataques similares
-- **V** (Velocity): Velocidade de mudança do ataque
-- **D** (Distance): Proximidade ao componente crítico
-- **C** (Complexity): Complexidade (técnicas, mutações, ruído adversarial)
+**Components:**
+- **S** (Severity): Severity of the attack (SQL injection, DDoS, etc.)
+- **F** (Frequency): Frequency of similar attacks
+- **V** (Velocity): Speed ​​of change of the attack
+- **D** (Distance): Proximity to the critical component
+- **C** (Complexity): Complexity (techniques, mutations, adversarial noise)
 
-**Coeficientes Adaptativos (IA ajusta):**
-- **α, β, γ, δ, ε**: Botões de sensibilidade
-- Modo PARANOID: α=1.5, δ=1.5 (alta sensibilidade)
-- Modo ECONOMY: γ=0.5, ε=0.5 (baixo custo)
-- Modo STUDY: β=1.5 (foco em frequência)
+**Adaptive Coefficients (AI adjusts):**
+- **α, β, γ, δ, ε**: Sensitivity knobs
+- PARANOID Mode: α=1.5, δ=1.5 (high sensitivity)
+- ECONOMY Mode: γ=0.5, ε=0.5 (low cost)
+- STUDY Mode: β=1.5 (frequency focus)
 
-**Outras Métricas:**
-- **r**: Distância ao núcleo crítico
-- **G**: Sensibilidade geral de defesa
-- **c**: Velocidade de propagação (normalizado = 1)
-- **Φ(r)**: Indicador de estabilidade = 1 - 2GM(r)/(c²r)
-- **dΩ²**: Dispersão angular (módulos afetados)
+**Other Metrics:**
+- **r**: Distance to the critical core
+- **G**: Overall defense sensitivity
+- **c**: Propagation speed (normalized = 1)
+- **Φ(r)**: Stability indicator = 1 - 2GM(r)/(c²r)
+- **dΩ²**: Angular dispersion (modules) (affected)
 
-**Classificação Ternária:**
+**Ternary Classification:**
 - Φ ≥ 0.5 → SAFE (-1)
 - 0.2 < Φ < 0.5 → MONITOR (0)
 - Φ ≤ 0.2 → CRITICAL (+1)
 
-**Horizonte de Eventos:** r_s = 2DM/c²
+**Event Horizon:** r_s = 2DM/c²
 
-Quando r ≤ r_s, o ataque está dentro do horizonte → bloqueio imediato.
+When r ≤ r_s, the attack is within the horizon → immediate blocking.
 
-### Usar Sistema Schwarzschild
+### Using the Schwarzschild System
 
 ```bash
-# Simulação de campo ternário 2D
+
+# 2D ternary field simulation
 python src/ternary_field_simulation.py
 
-# M(r) adaptativo com IA
+# Adaptive M(r) with AI
 python src/adaptive_mass.py
 
-# Simular ataques com análise física
+# Simulating attacks with physical analysis
 python src/schwarzschild_defense.py
 
-# Servidor com métrica Schwarzschild
+# Server with Schwarzschild metrics
 python src/schwarzschild_server.py
 
-# Testes
+# Tests
 python tests/test_schwarzschild.py
 python tests/test_ternary_field.py
 
-# Visualização
+# Visualization
 python visualize_schwarzschild.py
+
 ```
 
-### Intuição do Sistema
+### System Intuition
 
-**Curvatura do Campo Digital:**
-- M(r) ↑ → espaço digital se curva → mais energia para defender
-- r ↓ (ataque próximo ao núcleo) → curvatura explode → alerta crítico
-- Ataques fortes têm mais "massa" → curvam mais o campo
+**Digital Field Curvature:**
 
-**Modos de Defesa:**
+- M(r) ↑ → digital space curves → more energy to defend
+- r ↓ (attack close to (core) → curvature explodes → critical alert
+- Strong attacks have more "mass" → curve the field more
+
+**Defense Modes:**
 ```python
-Paranoid: α=1.5, δ=1.5  # Máxima proteção
-Balanced: todos = 1.0    # Equilíbrio
-Economy: γ=0.5, ε=0.5   # Economia de recursos
-Study: β=1.5            # Análise de padrões
+Paranoid: α=1.5, δ=1.5 # Maximum protection
+Balanced: all = 1.0 # Equilibrium
+Economy: γ=0.5, ε=0.5 # Resource economy
+Study: β=1.5 # Pattern analysis
 ```
 
-## 🟢 Simulação de Campo Ternário
+## 🟢 Ternary Field Simulation
 
-O sistema simula o espaço digital como um grid 2D com estados ternários:
+The system simulates digital space as a 2D grid with ternary states:
 
-**Estados Fundamentais:**
-- **-1**: Ameaça ativa (ataque confirmado)
-- **0**: Neutro/Desconhecido (ruído, incerteza)
-- **+1**: Protegido/Estável (defesa dominante)
+**Fundamental States:**
+- **-1**: Active threat (attack confirmed)
+- **0**: Neutral/Unknown (noise, uncertainty)
+- **+1**: Protected/Stable (dominant defense)
 
-**Campo Digital g(r):**
+**Digital Field** g(r):**
 ```
 g(r) = 1 - k·M(r)/r
 ```
 
-**Regras de Evolução:**
+**Evolution Rules:**
 ```
-g(r) > 0.7  → Estado +1 (PROTEGIDO)
-0.3 < g(r) ≤ 0.7 → Estado 0 (NEUTRO)
-g(r) ≤ 0.3  → Estado -1 (AMEAÇA)
+g(r) > 0.7 → State +1 (PROTECTED)
+0.3 < g(r) ≤ 0.7 → State 0 (NEUTRAL)
+g(r) ≤ 0.3 → State -1 (THREAT)
 ```
 
-**M(r) no Grid:**
-- **S**: Intensidade do ataque na célula
-- **F**: Vizinhos em estado -1
-- **V**: Variação entre ciclos
-- **D**: 1/r (proximidade ao núcleo)
-- **C**: Nível de ruído/ofuscação
+**M(r) in the Grid:**
+- **S**: Attack intensity on the cell
+- **F**: Neighbors in state -1
+- **V**: Variation between cycles
+- **D**: 1/r (proximity to the core)
+- **C**: Noise/obfuscation level
 
-**Visualização:**
-- Grid 50x50 com núcleo crítico no centro
-- Ataques injetados se propagam pelo campo
-- Sistema evolui até estabilidade ou colapso
-- Animação mostra evolução temporal
+**Visualization:**
+- 50x50 grid with critical core in the center
+- Injected attacks propagate through the field
+- System evolves towards stability or collapse
+- Animation shows temporal evolution
