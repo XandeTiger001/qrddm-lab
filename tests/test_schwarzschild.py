@@ -5,12 +5,12 @@ BASE_URL = 'http://localhost:8000'
 
 test_cases = [
     {
-        'name': 'Tráfego Normal',
+        'name': 'Normal Traffic',
         'payload': {'user': 'alice', 'action': 'login'},
         'expected': 'SAFE'
     },
     {
-        'name': 'SQL Injection Moderado',
+        'name': 'SQL Injection Moderate',
         'payload': {'query': "SELECT * FROM users WHERE id=1 OR 1=1"},
         'expected': 'MONITOR/CRITICAL'
     },
@@ -25,14 +25,14 @@ test_cases = [
         'expected': 'MONITOR/CRITICAL'
     },
     {
-        'name': 'DDoS Simulado',
+        'name': 'DDoS Simulated',
         'payload': {'data': 'A' * 50000},
         'expected': 'CRITICAL'
     }
 ]
 
 def run_tests():
-    print("🌌 Testando Sistema de Defesa Schwarzschild\n")
+    print("🌌 Testing Schwarzschild defense system\n")
     print("=" * 80)
     
     for test in test_cases:
@@ -41,16 +41,16 @@ def run_tests():
             response = requests.post(BASE_URL, json=test['payload'], timeout=5)
             result = response.json()
             
-            # Métricas Schwarzschild
+            # Metric Schwarzschild
             if 'schwarzschild' in result:
                 s = result['schwarzschild']
                 print(f"   Φ(r) = {s['phi']:.4f}")
                 print(f"   M(r) = {s['M']:.4f}")
                 print(f"   r = {s['r']:.4f}")
                 print(f"   r_s = {s['r_schwarzschild']:.4f}")
-                print(f"   Curvatura = {s['curvature']:.4f}")
+                print(f"   Curvature = {s['curvature']:.4f}")
             
-            # Classificação
+            # Classification
             if 'classification' in result:
                 c = result['classification']
                 level = c['level']

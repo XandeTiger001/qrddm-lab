@@ -13,7 +13,7 @@ class AdaptiveMassCalculator:
         self.coefficients = self._initialize_coefficients(mode)
     
     def _initialize_coefficients(self, mode):
-        """Coeficientes α, β, γ, δ, ε baseados no modo"""
+        """Coefficients α, β, γ, δ, ε based on mode"""
         presets = {
             DefenseMode.PARANOID: {'alpha': 1.5, 'beta': 1.0, 'gamma': 0.8, 'delta': 1.5, 'epsilon': 0.7},
             DefenseMode.BALANCED: {'alpha': 1.0, 'beta': 1.0, 'gamma': 1.0, 'delta': 1.0, 'epsilon': 1.0},
@@ -23,7 +23,7 @@ class AdaptiveMassCalculator:
         return presets[mode]
     
     def calculate_severity(self, attack_type, threat_score):
-        """S = Severidade do ataque"""
+        """S = Attack severity"""
         severity_weights = {
             'sql_injection': 0.9,
             'xss': 0.7,
@@ -37,23 +37,23 @@ class AdaptiveMassCalculator:
         return base_severity * threat_score
     
     def calculate_frequency(self, event_count, time_window=60):
-        """F = Frequência de ataques similares"""
+        """F = Frequency of similar attacks"""
         return np.log1p(event_count / time_window)
     
     def calculate_velocity(self, current_pattern, previous_pattern):
-        """V = Velocidade de mudança do ataque"""
+        """V = Rate of attack change"""
         if previous_pattern is None:
             return 0.0
         diff = abs(current_pattern - previous_pattern)
         return np.tanh(diff)
     
     def calculate_distance(self, target_layer, core_layer=0):
-        """D = Proximidade ao componente crítico (invertido)"""
+        """D = Proximity to critical component (inverted)"""
         distance = abs(target_layer - core_layer)
         return 1.0 / (1.0 + distance)
     
     def calculate_complexity(self, num_techniques, mutations, adversarial_noise):
-        """C = Complexidade do ataque"""
+        """C = Attack complexity"""
         return np.log1p(num_techniques + mutations + adversarial_noise)
     
     def calculate_M(self, S, F, V, D, C):
@@ -68,13 +68,13 @@ class AdaptiveMassCalculator:
         return np.clip(M, 0.01, 100.0)
     
     def calculate_angular_spread(self, affected_modules, total_modules):
-        """dΩ² = Dispersão angular (quantos módulos afetados)"""
+        """dΩ² = Angular spread (how many modules are affected)"""
         if total_modules == 0:
             return 0.0
         return (affected_modules / total_modules) * np.pi
     
     def adapt_coefficients(self, feedback):
-        """IA ajusta coeficientes baseado em feedback"""
+        """AI adjusts coefficients based on feedback"""
         if feedback['false_positives'] > 0.3:
             self.coefficients['alpha'] *= 0.9
             self.coefficients['delta'] *= 0.9
@@ -85,14 +85,15 @@ class AdaptiveMassCalculator:
         if feedback['study_mode']:
             self.coefficients['beta'] *= 1.2
         
-        # Limita coeficientes
+        # Limit coefficients
         for key in self.coefficients:
             self.coefficients[key] = np.clip(self.coefficients[key], 0.1, 2.0)
     
-    def set_mode(self, mode):
-        """Muda modo de defesa"""
-        self.mode = mode
-        self.coefficients = self._initialize_coefficients(mode)
+def set_mode(self, mode):
+    """Change defense mode"""
+    self.mode = mode
+    self.coefficients = self._initialize_coefficients(mode)
+
 
 class EnhancedSchwarzschildDefense:
     def __init__(self, G=1.5, c=1.0, mode=DefenseMode.BALANCED):
@@ -102,12 +103,12 @@ class EnhancedSchwarzschildDefense:
         self.attack_history = {}
     
     def analyze_attack(self, attack_data):
-        """Análise completa com M(r) adaptativo"""
+        """Full analysis with adaptive M(r)"""
         attack_type = attack_data.get('type', 'normal')
         threat_score = attack_data.get('threat_score', 0.5)
         source_ip = attack_data.get('source_ip', 'unknown')
         
-        # Calcula componentes de M(r)
+        # Calculate M(r) components
         S = self.mass_calculator.calculate_severity(attack_type, threat_score)
         
         event_count = self.attack_history.get(source_ip, [])
@@ -125,25 +126,25 @@ class EnhancedSchwarzschildDefense:
             attack_data.get('adversarial_noise', 0)
         )
         
-        # Calcula M(r)
+        # Calculate M(r)
         M = self.mass_calculator.calculate_M(S, F, V, D, C)
         
-        # Distância ao núcleo
+        # Distance to core
         r = attack_data.get('distance_to_core', 1.0)
         r = np.clip(r, 0.1, 100.0)
         
-        # Métrica de Schwarzschild
+        # Schwarzschild metric
         phi = self._calculate_phi(r, M)
         r_s = self._schwarzschild_radius(M)
         curvature = self._curvature(r, M)
         
-        # Dispersão angular
+        # Angular spread
         omega = self.mass_calculator.calculate_angular_spread(
             attack_data.get('affected_modules', 1),
             attack_data.get('total_modules', 10)
         )
         
-        # Atualiza histórico
+        # Update attack history
         if source_ip not in self.attack_history:
             self.attack_history[source_ip] = []
         self.attack_history[source_ip].append(threat_score)
@@ -188,7 +189,7 @@ class EnhancedSchwarzschildDefense:
             return 'CRITICAL'
     
     def _calculate_warping(self, M, r):
-        """Energia necessária para defender (curvatura do espaço digital)"""
+        """Energy required to defend (Cuvarture of digital space)"""
         warping = (M / r**2) * 100
         return round(float(np.clip(warping, 0, 1000)), 2)
 
@@ -197,7 +198,7 @@ def demo_adaptive_mass():
     
     scenarios = [
         {
-            'name': 'SQL Injection Simples',
+            'name': 'Simple SQL Injection',
             'type': 'sql_injection',
             'threat_score': 0.7,
             'target_layer': 2,
@@ -210,7 +211,7 @@ def demo_adaptive_mass():
             'source_ip': '192.168.1.100'
         },
         {
-            'name': 'DDoS Massivo Repetido',
+            'name': 'Repeated Massive DDoS',
             'type': 'ddos',
             'threat_score': 0.95,
             'target_layer': 1,
@@ -237,7 +238,8 @@ def demo_adaptive_mass():
         }
     ]
     
-    print("🌌 Sistema de Defesa com M(r) Adaptativo\n")
+def demo_adaptive_mass():
+    print("🌌 Adaptive M(r) Defense System\n")
     print("M(r) = α·S + β·F + γ·V + δ·D + ε·C\n")
     print("=" * 80)
     
@@ -245,40 +247,42 @@ def demo_adaptive_mass():
         result = defense.analyze_attack(scenario)
         
         print(f"\n📡 {scenario['name']}")
-        print(f"\n   Componentes de M(r):")
+        print(f"\n   M(r) Components:")
         mc = result['mass_components']
-        print(f"   • S (Severidade): {mc['S_severity']:.4f}")
-        print(f"   • F (Frequência): {mc['F_frequency']:.4f}")
-        print(f"   • V (Velocidade): {mc['V_velocity']:.4f}")
-        print(f"   • D (Distância): {mc['D_distance']:.4f}")
-        print(f"   • C (Complexidade): {mc['C_complexity']:.4f}")
+        print(f"   • S (Severity): {mc['S_severity']:.4f}")
+        print(f"   • F (Frequency): {mc['F_frequency']:.4f}")
+        print(f"   • V (Velocity): {mc['V_velocity']:.4f}")
+        print(f"   • D (Distance): {mc['D_distance']:.4f}")
+        print(f"   • C (Complexity): {mc['C_complexity']:.4f}")
         
-        print(f"\n   Coeficientes (α,β,γ,δ,ε):")
+        print(f"\n   Coefficients (α,β,γ,δ,ε):")
         coef = result['coefficients']
-        print(f"   {coef['alpha']:.2f}, {coef['beta']:.2f}, {coef['gamma']:.2f}, {coef['delta']:.2f}, {coef['epsilon']:.2f}")
+        print(f"   {coef['alpha']:.2f}, {coef['beta']:.2f}, {coef['gamma']:.2f}, "
+              f"{coef['delta']:.2f}, {coef['epsilon']:.2f}")
         
-        print(f"\n   Métrica de Schwarzschild:")
-        print(f"   • M(r) = {result['M_total']:.4f} (massa do ataque)")
-        print(f"   • r = {result['r']:.4f} (distância ao núcleo)")
+        print(f"\n   Schwarzschild Metric:")
+        print(f"   • M(r) = {result['M_total']:.4f} (attack mass)")
+        print(f"   • r = {result['r']:.4f} (distance to core)")
         print(f"   • Φ(r) = {result['phi']:.4f}")
-        print(f"   • r_s = {result['r_schwarzschild']:.4f} (horizonte)")
-        print(f"   • Curvatura = {result['curvature']:.4f}")
-        print(f"   • Ω = {result['omega_spread']:.4f} rad (dispersão)")
+        print(f"   • r_s = {result['r_schwarzschild']:.4f} (horizon)")
+        print(f"   • Curvature = {result['curvature']:.4f}")
+        print(f"   • Ω = {result['omega_spread']:.4f} rad (spread)")
         
-        print(f"\n   🎯 Classificação: {result['classification']}")
-        print(f"   ⚡ Energia de Defesa: {result['field_warping']} unidades")
+        print(f"\n   🎯 Classification: {result['classification']}")
+        print(f"   ⚡ Defense Energy: {result['field_warping']} units")
         
         if result['r'] <= result['r_schwarzschild']:
-            print(f"   ⚠️  DENTRO DO HORIZONTE DE EVENTOS!")
+            print(f"   ⚠️  INSIDE THE EVENT HORIZON!")
     
     print("\n" + "=" * 80)
-    print("\n🧠 Adaptando para modo PARANOID...")
+    print("\n🧠 Switching to PARANOID mode...")
     defense.mass_calculator.set_mode(DefenseMode.PARANOID)
     
     result = defense.analyze_attack(scenarios[0])
-    print(f"\nSQL Injection em modo PARANOID:")
-    print(f"   M(r) = {result['M_total']:.4f} (antes: ~0.7)")
-    print(f"   Classificação: {result['classification']}")
+    print(f"\nSQL Injection in PARANOID mode:")
+    print(f"   M(r) = {result['M_total']:.4f} (previously: ~0.7)")
+    print(f"   Classification: {result['classification']}")
+
 
 if __name__ == '__main__':
     demo_adaptive_mass()

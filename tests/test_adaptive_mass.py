@@ -5,13 +5,13 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 from adaptive_mass import EnhancedSchwarzschildDefense, DefenseMode
 
 def test_mass_components():
-    print("🧪 Testando Componentes de M(r)\n")
+    print("🧪 Testing M Components(r)\n")
     
     defense = EnhancedSchwarzschildDefense(mode=DefenseMode.BALANCED)
     
     tests = [
         {
-            'name': 'Ataque Simples',
+            'name': 'Simple Attack',
             'data': {
                 'type': 'xss',
                 'threat_score': 0.5,
@@ -24,10 +24,10 @@ def test_mass_components():
                 'total_modules': 10,
                 'source_ip': '1.1.1.1'
             },
-            'expected_M': 'baixo'
+            'expected_M': 'Low'
         },
         {
-            'name': 'Ataque Complexo Próximo',
+            'name': 'Complex Near Attack',
             'data': {
                 'type': 'adversarial_ml',
                 'threat_score': 0.9,
@@ -50,16 +50,16 @@ def test_mass_components():
         print(f"📡 {test['name']}")
         print(f"   M(r) = {result['M_total']:.4f} (esperado: {test['expected_M']})")
         print(f"   Φ(r) = {result['phi']:.4f}")
-        print(f"   Classificação: {result['classification']}")
+        print(f"   Classification: {result['classification']}")
         print(f"   Energia de Defesa: {result['field_warping']}\n")
         
         if test['expected_M'] == 'alto':
-            assert result['M_total'] > 2.0, "M deveria ser alto"
+            assert result['M_total'] > 2.0, "M should be High"
         else:
-            assert result['M_total'] < 2.0, "M deveria ser baixo"
+            assert result['M_total'] < 2.0, "M should be Low"
 
 def test_mode_adaptation():
-    print("\n🧪 Testando Adaptação de Modos\n")
+    print("\n🧪 Testing mode adaptation\n")
     
     attack = {
         'type': 'sql_injection',
@@ -85,7 +85,7 @@ def test_mode_adaptation():
         print(f"   Classification: {result['classification']}\n")
 
 def test_frequency_effect():
-    print("\n🧪 Testando Efeito de Frequência\n")
+    print("\n🧪 Testing frequency effect\n")
     
     defense = EnhancedSchwarzschildDefense()
     
@@ -102,15 +102,15 @@ def test_frequency_effect():
         'source_ip': '4.4.4.4'
     }
     
-    print("Ataques repetidos do mesmo IP:")
+    print("Repeated attacks from the same IP address:")
     for i in range(5):
         result = defense.analyze_attack(attack)
         F = result['mass_components']['F_frequency']
         M = result['M_total']
-        print(f"   Ataque {i+1}: F={F:.4f}, M(r)={M:.4f}")
+        print(f"   Attack {i+1}: F={F:.4f}, M(r)={M:.4f}")
 
 if __name__ == '__main__':
     test_mass_components()
     test_mode_adaptation()
     test_frequency_effect()
-    print("\n✅ Todos os testes passaram!")
+    print("\n✅ All tests passed!")
